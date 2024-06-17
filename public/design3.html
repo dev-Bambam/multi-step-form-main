@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="./main.css" />
+
+    <!-- font link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Frontend Mentor | Multi-step form</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      :root {
+        --translate: 0px;
+      }
+      .ubuntu-light {
+        font-family: "Ubuntu", sans-serif;
+        font-weight: 300;
+        font-style: normal;
+      }
+
+      /* font styles */
+      .ubuntu-regular {
+        font-family: "Ubuntu", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      .ubuntu-medium {
+        font-family: "Ubuntu", sans-serif;
+        font-weight: 500;
+        font-style: normal;
+      }
+
+      .ubuntu-bold {
+        font-family: "Ubuntu", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+      }
+
+      .ubuntu-light-italic {
+        font-family: "Ubuntu", sans-serif;
+        font-weight: 300;
+        font-style: italic;
+      }
+
+      .ubuntu-regular-italic {
+        font-family: "Ubuntu", sans-serif;
+        font-weight: 400;
+        font-style: italic;
+      }
+
+      .ubuntu-medium-italic {
+        font-family: "Ubuntu", sans-serif;
+        font-weight: 500;
+        font-style: italic;
+      }
+
+      .ubuntu-bold-italic {
+        font-family: "Ubuntu", sans-serif;
+        font-weight: 700;
+        font-style: italic;
+      }
+      .mobile {
+        background-image: url(../images/bg-sidebar-mobile.svg);
+        background-repeat: no-repeat;
+        background-size: 100vw;
+      }
+      .desktop {
+        background-image: url(../images/bg-sidebar-desktop.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+      .custom-checkbox {
+        appearance: none;
+        width: 1.4rem;
+        height: 1.4rem;
+        background-color: #ffffff;
+        border: 2px solid hsl(243, 100%, 62%);
+        border-radius: 0.25rem;
+        cursor: pointer;
+        position: relative;
+        display: inline-block;
+      }
+      .custom-checkbox:checked {
+        background-color: white;
+        border-color: hsl(243, 100%, 62%);
+      }
+      .custom-checkbox:checked::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0.8rem;
+        height: 0.8rem;
+        background-color: hsl(243, 100%, 62%);
+        border-radius: 0.125rem; /* Inner rectangle */
+        transform: translate(-50%, -50%);
+      }
+    </style>
+  </head>
+  <body
+    class="bg-magnolia ubuntu-regular lg:min-h-[100vh] lg:flex lg:items-center lg:justify-center"
+  >
+    <main class="lg:w-[78%] lg:max-w-[978px] lg:h-full">
+      <!-- for mobile upsection -->
+      <section class="w-full lg:hidden">
+        <div class="mobile h-40 flex justify-center">
+          <div class="mt-10 space-x-4">
+            <span
+              class="border rounded-full ubuntu-regular px-4 py-3 text-lightGray"
+              >1</span
+            >
+            <span
+              class="border rounded-full ubuntu-regular px-4 py-3 text-lightGray"
+              >2</span
+            >
+            <span
+              class="border rounded-full ubuntu-regular px-4 py-3 text-marineBlue bg-magnolia"
+              >3</span
+            >
+            <span
+              class="border rounded-full ubuntu-regular px-4 py-3 text-lightGray"
+              >4</span
+            >
+          </div>
+        </div>
+      </section>
+      <!-- the main design on medium screen and large  -->
+      <section class="lg:w-">
+        <!-- card wrapper -->
+        <div class="lg:bg-white lg:flex lg:rounded-md lg:p-3">
+          <!-- left section hidden on mobile -->
+          <div
+            class="desktop lg:bg-cover lg:bg-no-repeat lg:w-4/12 hidden lg:block"
+          >
+            <!-- left wrapper -->
+            <div class="lg:p-5 lg:space-y-4">
+              <!-- flex numbering -->
+              <div class="flex items-center gap-2">
+                <div
+                  class="border rounded-full ubuntu-regular px-3 py-1 text-marineBlue"
+                >
+                  1
+                </div>
+                <div class="text-[0.78rem]">
+                  <p class="text-coolGray">STEP 1</p>
+                  <p class="font-bold text-white">YOUR INFO</p>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-2">
+                <div
+                  class="border rounded-full ubuntu-regular px-3 py-1 text-marineBlue"
+                >
+                  2
+                </div>
+                <div class="text-[0.78rem]">
+                  <p class="text-coolGray">STEP 2</p>
+                  <p class="font-bold text-white">SELECT PLAN</p>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-2">
+                <div
+                  class="border rounded-full ubuntu-regular px-3 py-1 text-marineBlue bg-magnolia"
+                >
+                  3
+                </div>
+                <div class="text-[0.78rem]">
+                  <p class="text-coolGray">STEP 3</p>
+                  <p class="font-bold text-white">ADD-ONS</p>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-2">
+                <div
+                  class="border rounded-full ubuntu-regular px-3 py-1 text-marineBlue"
+                >
+                  4
+                </div>
+                <div class="text-[0.78rem]">
+                  <p class="text-coolGray">STEP 4</p>
+                  <p class="font-bold text-white">SUMMARY</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- right section container-->
+          <div class="-mt-16 max-w-2xl mx-auto md:mt-0 lg:mx-0 lg:w-8/12">
+            <!-- right section wrapper -->
+            <div
+              class="bg-white rounded-md px-3 pt-3 pb-4 shadow-md mx-4 lg:bg-transparent lg:rounded-none lg:shadow-none lg:pt-8 lg:w-[88%] lg:space-y-9"
+            >
+              <!-- typography div -->
+              <div class="space-y-2">
+                <h1 class="ubuntu-bold text-marineBlue text-xl">
+                  Pick add-ons
+                </h1>
+                <p class="ubuntu-regular text-lightGray">
+                  Add-ons help enhance your gaming experience.
+                </p>
+              </div>
+              <!-- add-ons container -->
+              <div class="">
+                <!-- add-ons wrapper -->
+                <div class="space-y-2">
+                  <!-- add-ons cards 1  -->
+                  <div
+                    class="flex items-center justify-between border border-coolGray p-4 rounded-md hover:border-purplishBlue cursor-pointer"
+                  >
+                    <!-- checkbox and other wrapper -->
+                    <div class="flex items-center gap-3">
+                      <div class="">
+                        <input type="checkbox" class="custom-checkbox" id="adds-on-1"/>
+                      </div>
+                      <div>
+                        <p class="text-marineBlue font-bold">Online service</p>
+                        <p class="text-sm text-coolGray">
+                          Access to multiplayer games
+                        </p>
+                      </div>
+                    </div>
+                    <p class="text-purplishBlue">+$<span>1</span>/mo</p>
+                  </div>
+                  <!-- adds-on card 2 -->
+                  <div
+                    class="flex items-center justify-between border border-coolGray p-4 rounded-md hover:border-purplishBlue cursor-pointer"
+                  >
+                    <!-- checkbox and other wrapper -->
+                    <div class="flex items-center gap-3">
+                      <div class="">
+                        <input type="checkbox" class="custom-checkbox" id="adds-on-2"/>
+                      </div>
+                      <div>
+                        <p class="text-marineBlue font-bold">Larger storage</p>
+                        <p class="text-sm text-coolGray">
+                          Extra 1TB of cloud save
+                        </p>
+                      </div>
+                    </div>
+                    <p class="text-purplishBlue">+$<span>2</span>/mo</p>
+                  </div>
+                  <!-- checkbox card 3 -->
+                  <div
+                    class="flex items-center justify-between border border-coolGray p-4 rounded-md hover:border-purplishBlue cursor-pointer"
+                  >
+                    <!-- checkbox and other wrapper -->
+                    <div class="flex items-center gap-3">
+                      <div class="">
+                        <input type="checkbox" class="custom-checkbox" id="adds-on-3"/>
+                      </div>
+                      <div>
+                        <p class="text-marineBlue font-bold">Customizable profile</p>
+                        <p class="text-sm text-coolGray">
+                          Custom theme on your profile
+                        </p>
+                      </div>
+                    </div>
+                    <p class="text-purplishBlue">+$<span>3</span>/mo</p>
+                  </div>
+                </div>
+              </div>
+              <!-- navigation buttons -->
+              <div class="lg:flex lg:mt20 hidden justify-between">
+                <button class="cursor-pointer text-coolGray text-md">
+                  <a href="design2.html">Go Back</a>
+                </button>
+                <button
+                  id="submit"
+                  class="bg-marineBlue rounded-md p-2 text-white text-sm"
+                >
+                  Next Step
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- footer for mobile -->
+      <section class="bg-white p-3 fixed bottom-0 w-full lg:hidden" id="footer">
+        <div class="flex justify-between">
+          <button class="cursor-pointer text-coolGray text-md">
+            <a href="design2.html">Go Back</a>
+          </button>
+          <button id="mobile-submit"
+            class="bg-marineBlue rounded-md p-2 text-white text-sm cursor-pointer"
+          >
+            Next Step
+          </button>
+        </div>
+      </section>
+    </main>
+    <script src="./design3.js"></script>
+  </body>
+</html>

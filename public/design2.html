@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="./main.css" />
+
+    <!-- font link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Frontend Mentor | Multi-step form</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      :root {
+        --translate: 0px;
+      }
+      .ubuntu-light {
+        font-family: "Ubuntu", sans-serif;
+        font-weight: 300;
+        font-style: normal;
+      }
+
+      /* font styles */
+      .ubuntu-regular {
+        font-family: "Ubuntu", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      .ubuntu-medium {
+        font-family: "Ubuntu", sans-serif;
+        font-weight: 500;
+        font-style: normal;
+      }
+
+      .ubuntu-bold {
+        font-family: "Ubuntu", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+      }
+
+      .ubuntu-light-italic {
+        font-family: "Ubuntu", sans-serif;
+        font-weight: 300;
+        font-style: italic;
+      }
+
+      .ubuntu-regular-italic {
+        font-family: "Ubuntu", sans-serif;
+        font-weight: 400;
+        font-style: italic;
+      }
+
+      .ubuntu-medium-italic {
+        font-family: "Ubuntu", sans-serif;
+        font-weight: 500;
+        font-style: italic;
+      }
+
+      .ubuntu-bold-italic {
+        font-family: "Ubuntu", sans-serif;
+        font-weight: 700;
+        font-style: italic;
+      }
+      .mobile {
+        background-image: url(../images/bg-sidebar-mobile.svg);
+        background-repeat: no-repeat;
+        background-size: 100vw;
+      }
+      .desktop {
+        background-image: url(../images/bg-sidebar-desktop.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+      .error-message {
+        color: hsl(354, 84%, 57%);
+        display: none;
+        font-size: 0.8rem;
+        font-weight: 400;
+      }
+      .toggle {
+        background-color: hsl(213, 96%, 18%);
+        width: 35px;
+        cursor: pointer;
+        height: 18px;
+        border-radius: 4em;
+        padding: 2px;
+        padding-left: 3px;
+        position: relative;
+      }
+      .toggle-btn {
+        position: absolute;
+        content: attr(data-content);
+        width: 13px;
+        height: 13px;
+        background-color: white;
+        border-radius: 50%;
+        transform: translateX(0px);
+        transition: transform 0.5s ease;
+      }
+      .toggle-btn-active {
+        transform: translateX(16px);
+      }
+      .toggle-text {
+        display: none;
+        color: hsl(213, 96%, 18%);
+        font-weight: bold;
+        font-size: small;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-magnolia ubuntu-regular lg:min-h-[100vh] lg:flex lg:items-center lg:justify-center"
+  >
+    <main class="lg:w-[78%] lg:max-w-[978px] lg:h-full">
+      <!-- for mobile upsection -->
+      <section class="w-full lg:hidden">
+        <div class="mobile h-40 flex justify-center">
+          <div class="mt-10 space-x-4">
+            <span
+              class="border rounded-full ubuntu-regular px-4 py-3 text-lightGray"
+              >1</span
+            >
+            <span
+              class="border rounded-full ubuntu-regular px-4 py-3 text-marineBlue bg-magnolia"
+              >2</span
+            >
+            <span
+              class="border rounded-full ubuntu-regular px-4 py-3 text-lightGray"
+              >3</span
+            >
+            <span
+              class="border rounded-full ubuntu-regular px-4 py-3 text-lightGray"
+              >4</span
+            >
+          </div>
+        </div>
+      </section>
+      <!-- the main design on medium screen and large  -->
+      <section class="lg:w-">
+        <!-- card wrapper -->
+        <div class="lg:bg-white lg:flex lg:rounded-md lg:p-3">
+          <!-- left section hidden on mobile -->
+          <div
+            class="desktop lg:bg-cover lg:bg-no-repeat lg:w-4/12 hidden lg:block"
+          >
+            <!-- left wrapper -->
+            <div class="lg:p-5 lg:space-y-4">
+              <!-- flex numbering -->
+              <div class="flex items-center gap-2">
+                <div
+                  class="border rounded-full ubuntu-regular px-3 py-1 text-marineBlue"
+                >
+                  1
+                </div>
+                <div class="text-[0.78rem]">
+                  <p class="text-coolGray">STEP 1</p>
+                  <p class="font-bold text-white">YOUR INFO</p>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-2">
+                <div
+                  class="border rounded-full ubuntu-regular px-3 py-1 text-marineBlue bg-magnolia"
+                >
+                  2
+                </div>
+                <div class="text-[0.78rem]">
+                  <p class="text-coolGray">STEP 2</p>
+                  <p class="font-bold text-white">SELECT PLAN</p>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-2">
+                <div
+                  class="border rounded-full ubuntu-regular px-3 py-1 text-marineBlue"
+                >
+                  3
+                </div>
+                <div class="text-[0.78rem]">
+                  <p class="text-coolGray">STEP 3</p>
+                  <p class="font-bold text-white">ADD-ONS</p>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-2">
+                <div
+                  class="border rounded-full ubuntu-regular px-3 py-1 text-marineBlue"
+                >
+                  4
+                </div>
+                <div class="text-[0.78rem]">
+                  <p class="text-coolGray">STEP 4</p>
+                  <p class="font-bold text-white">SUMMARY</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- right section container-->
+          <div class="-mt-16 max-w-2xl mx-auto md:mt-0 lg:mx-0 lg:w-8/12">
+            <!-- right section wrapper -->
+            <div
+              class="bg-white rounded-md px-3 pt-3 pb-4 shadow-md mx-4 lg:bg-transparent lg:rounded-none lg:shadow-none lg:pt-8 lg:w-[88%] lg:space-y-9"
+            >
+              <!-- typography div -->
+              <div class="space-y-2">
+                <h1 class="ubuntu-bold text-marineBlue text-xl">
+                  Select your plan
+                </h1>
+                <p class="ubuntu-regular text-lightGray">
+                  You have the option of monthly or yearly billing.
+                </p>
+              </div>
+              <!-- plan container -->
+              <div class="">
+                <!-- plan card wrapper -->
+                <div
+                  id="card-wrapper"
+                  class="space-y-2 md:flex md:space-y-0 md:gap-3 lg:gap-3"
+                >
+                  <!-- plan cards 1  -->
+                  <div
+                    id="plan-card-1"
+                    class="flex gap-3 bg-magnolia border border-coolGray p-4 rounded-md md:block md:space-y-12 hover:border-purplishBlue md:pr-16 md:p-3 cursor-pointer lg:w-4/12 lg:h-48 lg:p-0 lg:pt-2 lg:pl-2"
+                  >
+                    <img src="../images/icon-arcade.svg" alt="" />
+                    <div>
+                      <p class="text-marineBlue font-bold">Arcade</p>
+                      <p class="text-sm text-coolGray" id="arcade">
+                        $<span id="arcade-value">9</span>/<span>mo</span>
+                      </p>
+                      <p class="toggle-text">2 month free</p>
+                    </div>
+                  </div>
+                  <!-- plan card 2 -->
+                  <div
+                    id="plan-card-2"
+                    class="flex gap-3 border border-coolGray hover:border p-4 rounded-md hover:border-purplishBlue md:block md:space-y-12 md:pr-16 md:p-3 cursor-pointer lg:w-4/12 lg:h-48 lg:p-0 lg:pt-2 lg:pl-2"
+                  >
+                    <img src="../images/icon-advanced.svg" alt="" />
+                    <div>
+                      <p class="text-marineBlue font-bold">Advanced</p>
+                      <p class="text-sm text-coolGray" id="advanced">
+                        $<span id="advanced-value">12</span>/<span class="date">mo</span>
+                      </p>
+                      <p class="toggle-text">2 month free</p>
+                    </div>
+                  </div>
+                  <!-- plan card 3 -->
+                  <div
+                    id="plan-card-3"
+                    class="flex gap-3 border border-coolGray hover:border p-4 rounded-md hover:border-purplishBlue md:block md:space-y-12 md:pr-16 md:p-3 cursor-pointer lg:w-4/12 lg:h-48 lg:p-0 lg:pt-2 lg:pl-2"
+                  >
+                    <img src="../images/icon-pro.svg" alt="" />
+                    <div>
+                      <p class="text-marineBlue font-bold">Pro</p>
+                      <p class="text-sm text-coolGray" id="pro">
+                        $<span id="pro-value">15</span>/<span class="date">mo</span>
+                      </p>
+                      <p class="toggle-text">2 month free</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- monthly and yearly toggle container-->
+              <div
+                class="flex items-center justify-center bg-magnolia p-4 rounded-md mt-3 lg:mb-20"
+              >
+                <!-- monthly and yearly wrapper -->
+                <div class="flex items-center gap-4">
+                  <p class="text-marineBlue font-bold">Monthly</p>
+                  <div class="toggle">
+                    <div class="toggle-btn"></div>
+                  </div>
+                  <p class="text-coolGray font-semibold">Yearly</p>
+                </div>
+              </div>
+              <!-- navigation buttons -->
+              <div class="lg:flex lg:mt20 hidden justify-between">
+                <button class="cursor-pointer text-coolGray text-md">
+                  <a href="index.html">Go Back</a>
+                </button>
+                <button
+                  id="submit"
+                  class="bg-marineBlue rounded-md p-2 text-white text-sm"
+                >
+                  Next Step
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- footer for mobile -->
+      <section class="bg-white p-3 fixed bottom-0 w-full lg:hidden" id="footer">
+        <div class="flex justify-between">
+          <button class="cursor-pointer text-coolGray text-md">
+            <a href="index.html"> Go Back </a>
+          </button>
+          <button
+            id="mobile-submit"
+            class="bg-marineBlue rounded-md p-2 text-white text-sm cursor-pointer"
+          >
+            Next Step
+          </button>
+        </div>
+      </section>
+    </main>
+    <script src="./design2.js"></script>
+  </body>
+</html>
